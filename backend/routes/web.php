@@ -16,3 +16,16 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::prefix('/')->group(function () {
+    Route::get('/viewregister', [
+        'as' => 'viewregister',
+        'uses' => 'App\Http\Controllers\UserController@viewregister',
+        // 'middleware' => (['auth', 'verified'])
+    ]);
+    Route::post('/register', [
+        'as' => 'register',
+        'uses' => 'App\Http\Controllers\UserController@register',
+        // 'middleware' => (['auth', 'verified'])
+    ]);
+});
