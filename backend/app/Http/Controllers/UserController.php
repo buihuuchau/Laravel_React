@@ -9,10 +9,10 @@ use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
-    function viewregister()
-    {
-        return view('viewregister');
-    }
+    // function viewregister()
+    // {
+    //     return view('viewregister');
+    // }
 
     function register(Request $request)
     {

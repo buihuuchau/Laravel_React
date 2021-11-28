@@ -20,3 +20,10 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 // Route::post('register', [UserController::class, 'register']);
+Route::prefix('/')->group(function () {
+    Route::post('/register', [
+        'as' => 'register',
+        'uses' => 'App\Http\Controllers\UserController@register',
+        // 'middleware' => (['auth', 'verified'])
+    ]);
+});

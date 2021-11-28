@@ -8,8 +8,8 @@ function Header() {
                 <Nav className="me-auto padding-left-3">
                     <Link to="/add">Add Product</Link>
                     <Link to="/update">Update Product</Link>
-                    <Link to="/login">Login Product</Link>
-                    <Link to="/register">Register Product</Link>
+                    <Link to="/login">Login</Link>
+                    <Link to="/register">Register</Link>
                 </Nav>
             </Navbar>
         </div>
