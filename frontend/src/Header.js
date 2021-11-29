@@ -1,6 +1,17 @@
-import { Navbar, Nav } from "react-bootstrap";
+import DropdownMenu from "@restart/ui/esm/DropdownMenu";
+import { Navbar, Nav, NavDropdown } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { useHistory } from "react-router-dom";
 function Header() {
+    const history = useHistory();
+    let user = JSON.parse(localStorage.getItem("user-info"));
+    console.warn(user);
+    function Logout() {
+        localStorage.clear();
+        history.push("/register");
+        console.warn(user);
+    }
     return (
         <div>
             <Navbar bg="dark" variant="dark">
@@ -26,6 +37,15 @@ function Header() {
                         </>
                     )}
                 </Nav>
+                {localStorage.getItem("user-info") ? (  
+                    <Nav>
+                        <NavDropdown title={user && user.name}>
+                            <NavDropdown.Item onClick={Logout}>
+                                Logout
+                            </NavDropdown.Item>
+                        </NavDropdown>
+                    </Nav>
+                ) : null}
             </Navbar>
         </div>
     );
