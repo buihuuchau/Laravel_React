@@ -9,7 +9,7 @@ function Header() {
     console.warn(user);
     function Logout() {
         localStorage.clear();
-        history.push("/register");
+        history.push("/login");
         console.warn(user);
     }
     return (
@@ -37,7 +37,7 @@ function Header() {
                         </>
                     )}
                 </Nav>
-                {localStorage.getItem("user-info") ? (  
+                {localStorage.getItem("user-info") ? (
                     <Nav>
                         <NavDropdown title={user && user.name}>
                             <NavDropdown.Item onClick={Logout}>

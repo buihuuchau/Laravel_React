@@ -2,16 +2,19 @@ import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import Header from "./Header";
 function Register() {
+    // Khi co user-info se chuyen toi
     useEffect(() => {
-        if(localStorage.getItem("user-info")){
+        if (localStorage.getItem("user-info")) {
             history.push("/add");
         }
     }, []);
+    // Khi co user-info se chuyen toi
+
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const history = useHistory();
-    async function signUp() {
+    async function SignUp() {
         let item = { name, email, password };
         console.warn(name, email, password);
         console.warn(item);
@@ -27,7 +30,7 @@ function Register() {
         console.warn("result", result);
         // Khong nen dung localStorage
         localStorage.setItem("user-info", JSON.stringify(result));
-        history.push("/add");
+        history.push("/add"); // chuyen toi sau khi nhan $result thanh cong
     }
     return (
         <div>
@@ -70,9 +73,9 @@ function Register() {
                 <button
                     type="submit"
                     className="btn btn-success"
-                    onClick={signUp}
+                    onClick={SignUp}
                 >
-                    Submit
+                    Register
                 </button>
             </div>
         </div>
