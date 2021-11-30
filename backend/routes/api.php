@@ -37,4 +37,9 @@ Route::prefix('/')->group(function () {
         'uses' => 'App\Http\Controllers\ProductController@addProduct',
         // 'middleware' => (['auth', 'verified'])
     ]);
+    Route::get('/listProduct', [
+        'as' => 'listProduct',
+        'uses' => 'App\Http\Controllers\ProductController@listProduct',
+        // 'middleware' => (['auth', 'verified'])
+    ]);
 });
