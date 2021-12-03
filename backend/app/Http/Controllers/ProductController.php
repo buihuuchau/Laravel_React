@@ -29,4 +29,15 @@ class ProductController extends Controller
     {
         return Product::all();
     }
+
+    function deleteProduct(Request $request)
+    {
+        $Product = Product::where('id', $request->id)->delete();
+        // if ($Product) {
+        //     $result = 0;
+        // } else {
+        //     $result = 1;
+        // }
+        // return $result;
+    }
 }

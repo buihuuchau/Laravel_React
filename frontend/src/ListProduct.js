@@ -6,10 +6,31 @@ function ListProduct() {
     const history = useHistory();
     const [data, setData] = useState([]);
     useEffect(async () => {
+        // let result = await fetch("http://127.0.0.1:8000/api/listProduct");
+        // result = await result.json();
+        // setData(result);
+        getData();
+    }, []);
+    async function deleteProduct(id) {
+        const formData = new FormData();
+        formData.append("id", id);
+        let result = await fetch("http://127.0.0.1:8000/api/deleteProduct", {
+            method: "POST",
+            body: formData,
+        });
+        getData();
+        // result = await result.json();
+        // if (result == 0) {
+        //     getData();
+        // } else {
+        //     getData();
+        // }
+    }
+    async function getData() {
         let result = await fetch("http://127.0.0.1:8000/api/listProduct");
         result = await result.json();
         setData(result);
-    }, []);
+    }
     return (
         <div>
             <Header />
@@ -23,6 +44,7 @@ function ListProduct() {
                             <th>IMAGE</th>
                             <th>DESCRIPTION</th>
                             <th>PRICE</th>
+                            <th>DO</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -42,6 +64,15 @@ function ListProduct() {
                                 />
                                 <td>{item.description}</td>
                                 <td>{item.price}</td>
+                                <td>
+                                    <button
+                                        type="submit"
+                                        className="btn btn-danger"
+                                        onClick={() => deleteProduct(item.id)}
+                                    >
+                                        Delete Product
+                                    </button>
+                                </td>
                             </tr>
                         ))}
                     </tbody>

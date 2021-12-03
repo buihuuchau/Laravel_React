@@ -42,4 +42,9 @@ Route::prefix('/')->group(function () {
         'uses' => 'App\Http\Controllers\ProductController@listProduct',
         // 'middleware' => (['auth', 'verified'])
     ]);
+    Route::post('/deleteProduct', [
+        'as' => 'deleteProduct',
+        'uses' => 'App\Http\Controllers\ProductController@deleteProduct',
+        // 'middleware' => (['auth', 'verified'])
+    ]);
 });
