@@ -38,10 +38,15 @@ function Login() {
         });
 
         result = await result.json();
-        console.warn("result", result);
-        // Khong nen dung localStorage
-        localStorage.setItem("user-info", JSON.stringify(result));
-        history.push("/add");
+        if (result == 0) {
+            console.warn("result", result);
+            alert("Email or password is not matched");
+        } else {
+            console.warn("result", result);
+            // Khong nen dung localStorage
+            localStorage.setItem("user-info", JSON.stringify(result));
+            history.push("/add");
+        }
     }
     return (
         <div>

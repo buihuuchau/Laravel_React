@@ -28,8 +28,10 @@ class UserController extends Controller
     function login(Request $request)
     {
         $user = User::where('email', $request->input('email'))->first();
+        $sai = 0;
         if (!$user || !Hash::check($request->password, $user->password)) {
-            return ["error" => "Email or password is not matched"];
+            // return ["error" => "Email or password is not matched"];
+            return $sai;
         }
         return $user;
     }
