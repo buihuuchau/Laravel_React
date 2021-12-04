@@ -40,4 +40,26 @@ class ProductController extends Controller
         // }
         // return $result;
     }
+
+    function updateProduct(Request $request)
+    {
+        $Product = Product::where('id', $request->id)->first();
+        return $Product;
+    }
+
+    function doupdateProduct(Request $request)
+    {
+        $Product['name'] = $request->name;
+        if ($request->file) {
+            $filepath = $request->file->store('public/product');
+            $linkfilepath = 'storage' . substr($filepath, 6);
+            $Product['file_path'] = $linkfilepath;
+        }
+        $Product['description'] = $request->description;
+        $Product['price'] = $request->price;
+        DB::table('products')
+            ->where('id', $request->id)
+            ->update($Product);
+        return $Product;
+    }
 }

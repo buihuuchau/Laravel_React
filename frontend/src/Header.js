@@ -6,11 +6,9 @@ import { useHistory } from "react-router-dom";
 function Header() {
     const history = useHistory();
     let user = JSON.parse(localStorage.getItem("user-info"));
-    console.warn(user);
     function Logout() {
         localStorage.clear();
         history.push("/login");
-        console.warn(user);
     }
     return (
         <div>

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import Header from "./Header";
 import { Table } from "react-bootstrap";
+import { Link } from "react-router-dom";
 function ListProduct() {
     const history = useHistory();
     const [data, setData] = useState([]);
@@ -70,8 +71,15 @@ function ListProduct() {
                                         className="btn btn-danger"
                                         onClick={() => deleteProduct(item.id)}
                                     >
-                                        Delete Product
+                                        Delete
                                     </button>
+                                    <Link
+                                        type="submit"
+                                        className="btn btn-secondary"
+                                        to={"/update/" + item.id}
+                                    >
+                                        Update
+                                    </Link>
                                 </td>
                             </tr>
                         ))}

@@ -7,7 +7,7 @@ import { Switch } from "react-router-dom";
 import Login from "./Login";
 import Register from "./Register";
 import AddProduct from "./AddProduct";
-import UpdateProduct from "./UpdateProduct";
+import UpdateProduct from "./Update";
 import Protected from "./Protected";
 import ListProduct from "./ListProduct";
 function App() {
@@ -26,7 +26,7 @@ function App() {
                         <Protected Cmp={AddProduct} />
                         {/* <AddProduct /> */}
                     </Route>
-                    <Route path="/update">
+                    <Route path="/update/:id">
                         <Protected Cmp={UpdateProduct} />
                         {/* <UpdateProduct /> */}
                     </Route>

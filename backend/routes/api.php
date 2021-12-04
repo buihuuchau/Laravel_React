@@ -47,4 +47,14 @@ Route::prefix('/')->group(function () {
         'uses' => 'App\Http\Controllers\ProductController@deleteProduct',
         // 'middleware' => (['auth', 'verified'])
     ]);
+    Route::post('/updateProduct', [
+        'as' => 'updateProduct',
+        'uses' => 'App\Http\Controllers\ProductController@updateProduct',
+        // 'middleware' => (['auth', 'verified'])
+    ]);
+    Route::post('/doupdateProduct', [
+        'as' => 'doupdateProduct',
+        'uses' => 'App\Http\Controllers\ProductController@doupdateProduct',
+        // 'middleware' => (['auth', 'verified'])
+    ]);
 });

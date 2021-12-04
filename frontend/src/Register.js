@@ -16,8 +16,6 @@ function Register() {
     const history = useHistory();
     async function SignUp() {
         let item = { name, email, password };
-        console.warn(name, email, password);
-        console.warn(item);
         let result = await fetch("http://127.0.0.1:8000/api/register", {
             method: "POST",
             body: JSON.stringify(item),
@@ -27,7 +25,6 @@ function Register() {
             },
         });
         result = await result.json();
-        console.warn("result", result);
         // Khong nen dung localStorage
         localStorage.setItem("user-info", JSON.stringify(result));
         history.push("/add"); // chuyen toi sau khi nhan $result thanh cong
