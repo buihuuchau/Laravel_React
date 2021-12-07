@@ -37,24 +37,24 @@ Route::prefix('/')->group(function () {
         'uses' => 'App\Http\Controllers\ProductController@addproduct',
         // 'middleware' => (['auth', 'verified'])
     ]);
-    Route::get('/listProduct', [
+    Route::get('/listproduct', [
         'as' => 'listProduct',
-        'uses' => 'App\Http\Controllers\ProductController@listProduct',
+        'uses' => 'App\Http\Controllers\ProductController@listproduct',
         // 'middleware' => (['auth', 'verified'])
     ]);
-    Route::post('/deleteProduct', [
-        'as' => 'deleteProduct',
-        'uses' => 'App\Http\Controllers\ProductController@deleteProduct',
+    Route::post('/deleteproduct', [
+        'as' => 'deleteproduct',
+        'uses' => 'App\Http\Controllers\ProductController@deleteproduct',
         // 'middleware' => (['auth', 'verified'])
     ]);
-    Route::post('/updateProduct', [
-        'as' => 'updateProduct',
-        'uses' => 'App\Http\Controllers\ProductController@updateProduct',
+    Route::post('/updateproduct', [
+        'as' => 'updateproduct',
+        'uses' => 'App\Http\Controllers\ProductController@updateproduct',
         // 'middleware' => (['auth', 'verified'])
     ]);
-    Route::post('/doupdateProduct', [
-        'as' => 'doupdateProduct',
-        'uses' => 'App\Http\Controllers\ProductController@doupdateProduct',
+    Route::post('/doupdateproduct', [
+        'as' => 'doupdateproduct',
+        'uses' => 'App\Http\Controllers\ProductController@doupdateproduct',
         // 'middleware' => (['auth', 'verified'])
     ]);
 });

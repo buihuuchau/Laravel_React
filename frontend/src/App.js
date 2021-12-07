@@ -13,19 +13,19 @@ class App extends Component {
             <div>
                 <BrowserRouter>
                     <Switch>
-                        <Route path="/Login">
+                        <Route path="/login">
                             <Login />
                         </Route>
-                        <Route path="/Register">
+                        <Route path="/register">
                             <Register />
                         </Route>
-                        <Route path="/AddProduct">
+                        <Route path="/addproduct">
                             <AddProduct />
                         </Route>
-                        <Route path="/UpdateProduct">
+                        <Route path="/updateproduct">
                             <UpdateProduct />
                         </Route>
-                        <Route path="/ListProduct">
+                        <Route path="/listproduct">
                             <ListProduct />
                         </Route>
                     </Switch>

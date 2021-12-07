@@ -34,6 +34,12 @@ class AddProduct extends Component {
             method: "POST",
             body: formData,
         });
+        // result = await result.json();
+        // if (result === 1) {
+        //     alert("them thanh cong");
+        // } else {
+        //     alert("loi");
+        // }
     };
     render() {
         if (!localStorage.getItem("user-info")) {

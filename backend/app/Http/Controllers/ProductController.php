@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\DB;
 
 class ProductController extends Controller
 {
-    function addProduct(Request $request)
+    function addproduct(Request $request)
     {
         $Product = new Product();
         $Product->name = $request->input('name');
@@ -22,15 +22,21 @@ class ProductController extends Controller
         $Product->description = $request->input('description');
         $Product->price = $request->input('price');
         $Product->save();
-        return $Product;
+        $thongbao = 1;
+        return $thongbao;
+        // return [$Product, $thongbao];
+        // return response()->json([
+        //     'status' => 200,
+        //     'message' => "ok",
+        // ]);
     }
 
-    function listProduct()
+    function listproduct()
     {
         return Product::all();
     }
 
-    function deleteProduct(Request $request)
+    function deleteproduct(Request $request)
     {
         $Product = Product::where('id', $request->id)->delete();
         // if ($Product) {
@@ -41,13 +47,13 @@ class ProductController extends Controller
         // return $result;
     }
 
-    function updateProduct(Request $request)
+    function updateproduct(Request $request)
     {
         $Product = Product::where('id', $request->id)->first();
         return $Product;
     }
 
-    function doupdateProduct(Request $request)
+    function doupdateproduct(Request $request)
     {
         $Product['name'] = $request->name;
         if ($request->file) {
