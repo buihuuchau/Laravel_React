@@ -1,8 +1,5 @@
 import React, { Component } from "react";
-// import { BrowserRouter, Route, Switch } from "react-router-dom";
-import { BrowserRouter } from "react-router-dom";
-import { Route } from "react-router-dom";
-import { Switch } from "react-router-dom";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Header from "./component/Header";
 import Login from "./component/Login";
 import Register from "./component/Register";

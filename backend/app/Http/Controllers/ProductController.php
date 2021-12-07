@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Product;
 use GuzzleHttp\Promise\Create;
 use Illuminate\Support\Facades\Hash;
-use DB;
+use Illuminate\Support\Facades\DB;
 
 class ProductController extends Controller
 {
@@ -18,7 +18,7 @@ class ProductController extends Controller
         $filepath = $filepath->store('public/product');
         $linkfilepath = 'storage' . substr($filepath, 6);
         $Product->file_path = $linkfilepath;
-        // $Product->file_path = $request->file('file')->store('products');
+        // // $Product->file_path = $request->file('file')->store('products');
         $Product->description = $request->input('description');
         $Product->price = $request->input('price');
         $Product->save();

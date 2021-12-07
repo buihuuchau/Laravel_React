@@ -36,13 +36,13 @@ class Login extends Component {
             alert("Email or password is not matched");
         } else {
             localStorage.setItem("user-info", JSON.stringify(result));
-            window.location.href = "/AddProduct";
+            window.location.href = "/ListProduct";
         }
     };
 
     render() {
         if (localStorage.getItem("user-info")) {
-            return <Redirect to="/AddProduct" />;
+            return <Redirect to="/ListProduct" />;
         }
         return (
             <div>

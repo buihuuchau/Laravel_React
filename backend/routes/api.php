@@ -32,9 +32,9 @@ Route::prefix('/')->group(function () {
         'uses' => 'App\Http\Controllers\UserController@login',
         // 'middleware' => (['auth', 'verified'])
     ]);
-    Route::post('/addProduct', [
-        'as' => 'addProduct',
-        'uses' => 'App\Http\Controllers\ProductController@addProduct',
+    Route::post('/addproduct', [
+        'as' => 'addproduct',
+        'uses' => 'App\Http\Controllers\ProductController@addproduct',
         // 'middleware' => (['auth', 'verified'])
     ]);
     Route::get('/listProduct', [
