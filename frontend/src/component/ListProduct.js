@@ -92,13 +92,13 @@ class ListProduct extends Component {
                                         >
                                             Delete
                                         </button>
-                                        {/* <Link
+                                        <Link
                                             type="submit"
                                             className="btn btn-secondary"
-                                            to={"/update/" + item.id}
+                                            to={"/updateproduct/" + item.id}
                                         >
                                             Update
-                                        </Link> */}
+                                        </Link>
                                     </td>
                                 </tr>
                             );

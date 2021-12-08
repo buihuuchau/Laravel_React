@@ -49,23 +49,23 @@ class ProductController extends Controller
 
     function updateproduct(Request $request)
     {
-        $Product = Product::where('id', $request->id)->first();
+        $Product = Product::where('id', $request->idproduct)->first();
         return $Product;
     }
 
     function doupdateproduct(Request $request)
     {
-        $Product['name'] = $request->name;
+        $product['name'] = $request->input('name');
         if ($request->file) {
             $filepath = $request->file->store('public/product');
             $linkfilepath = 'storage' . substr($filepath, 6);
-            $Product['file_path'] = $linkfilepath;
+            $product['file_path'] = $linkfilepath;
         }
-        $Product['description'] = $request->description;
-        $Product['price'] = $request->price;
+        $product['description'] = $request->input('description');
+        $product['price'] = $request->input('price');
         DB::table('products')
-            ->where('id', $request->id)
-            ->update($Product);
-        return $Product;
+            ->where('id', $request->input('idproduct'))
+            ->update($product);
+        return $product;
     }
 }

@@ -8,7 +8,7 @@ class AddProduct extends Component {
         super(props);
         this.state = {
             name: "",
-            anh: null,
+            file_path: null,
             description: "",
             price: "",
         };
@@ -20,14 +20,18 @@ class AddProduct extends Component {
     };
     onChange2 = (event) => {
         this.setState({
-            anh: event.target.files[0],
+            file_path: event.target.files[0],
         });
     };
     onSubmit = async (event) => {
         event.preventDefault();
         const formData = new FormData();
         formData.append("name", this.state.name);
-        formData.append("file", this.state.anh, this.state.anh.name);
+        formData.append(
+            "file",
+            this.state.file_path,
+            this.state.file_path.name
+        );
         formData.append("description", this.state.description);
         formData.append("price", this.state.price);
         let result = await fetch("http://127.0.0.1:8000/api/addproduct", {
@@ -99,7 +103,7 @@ class AddProduct extends Component {
                                 />
                             </Form.Group>
                             <Button variant="primary" type="submit">
-                                Submit
+                                Add
                             </Button>
                         </Form>
                     </>

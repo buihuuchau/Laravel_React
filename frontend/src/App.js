@@ -22,7 +22,7 @@ class App extends Component {
                         <Route path="/addproduct">
                             <AddProduct />
                         </Route>
-                        <Route path="/updateproduct">
+                        <Route path="/updateproduct/:idproduct">
                             <UpdateProduct />
                         </Route>
                         <Route path="/listproduct">
