@@ -77,8 +77,6 @@ class ListProduct extends Component {
                                             "http://127.0.0.1:8000/" +
                                             item.file_path
                                         }
-                                        // width="250px"
-                                        // height="100px"
                                     />
                                     <td>{item.description}</td>
                                     <td>{item.price}</td>
@@ -92,10 +90,32 @@ class ListProduct extends Component {
                                         >
                                             Delete
                                         </button>
-                                        <Link
+
+                                        {/* gui kem /"+item.id, nhan bang
+                                        this.props.match.params.idproduct */}
+                                        {/* <Link
                                             type="submit"
                                             className="btn btn-secondary"
                                             to={"/updateproduct/" + item.id}
+                                        >
+                                            Update
+                                        </Link> */}
+
+                                        {/* khong /"+item.id van gui bth thong qua
+                                        state, nhan bang
+                                        this.props.location.state.id */}
+                                        <Link
+                                            type="submit"
+                                            className="btn btn-secondary"
+                                            to={{
+                                                pathname:
+                                                    "/updateproduct/" + item.id,
+                                                state: {
+                                                    id: item.id,
+                                                    // name: item.name,
+                                                    // price: item.price,
+                                                },
+                                            }}
                                         >
                                             Update
                                         </Link>

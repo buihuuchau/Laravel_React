@@ -1,19 +1,17 @@
 import React, { Component } from "react";
-// import { BrowserRouter, Route, Switch } from "react-router-dom";
-// import Header from "./component/Header";
-// import Login from "./component/Login";
-// import Register from "./component/Register";
-// import AddProduct from "./component/AddProduct";
-// import UpdateProduct from "./component/UpdateProduct";
-// import ListProduct from "./component/ListProduct";
-import Router from "./component/Router";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
+import Header from "./Header";
+import Login from "./Login";
+import Register from "./Register";
+import AddProduct from "./AddProduct";
+import UpdateProduct from "./UpdateProduct";
+import ListProduct from "./ListProduct";
 
-class App extends Component {
+class Router extends Component {
     render() {
         return (
             <div>
-                <Router/>
-                {/* <BrowserRouter>
+                <BrowserRouter>
                     <Switch>
                         <Route path="/login">
                             <Login />
@@ -24,16 +22,18 @@ class App extends Component {
                         <Route path="/addproduct">
                             <AddProduct />
                         </Route>
+                        {/* url kem /idproduct */}
                         <Route path="/updateproduct/:idproduct">
                             <UpdateProduct />
                         </Route>
-                        <Route path="/listproduct">
-                            <ListProduct />
-                        </Route>
+                        <Route
+                            path="/listproduct"
+                            component={ListProduct}
+                        ></Route>
                     </Switch>
-                </BrowserRouter> */}
+                </BrowserRouter>
             </div>
         );
     }
 }
-export default App;
+export default Router;

@@ -15,7 +15,8 @@ class UpdateProduct extends Component {
         };
     }
     async componentDidMount() {
-        let idproduct = this.props.match.params.idproduct;
+        let idproduct = this.props.location.state.id;
+        // let idproduct = this.props.match.params.idproduct;
         const formData = new FormData();
         formData.append("idproduct", idproduct);
         let result = await fetch("http://127.0.0.1:8000/api/updateproduct", {
