@@ -64,19 +64,20 @@ class UpdateImageProduct extends Component {
         event.preventDefault();
         const formData = new FormData();
         formData.append("idproduct", this.props.match.params.idproduct);
-        for (let i = 0; i < this.state.imageupload.length; i++) {
-            formData.append(`file[${i}]`, this.state.imageupload[i]);
-        }
-
-        let result = await fetch(
-            "http://127.0.0.1:8000/api/uploadimageproduct",
-            {
-                method: "POST",
-                body: formData,
+        if (this.state.imageupload != null) {
+            for (let i = 0; i < this.state.imageupload.length; i++) {
+                formData.append(`file[${i}]`, this.state.imageupload[i]);
             }
-        );
+            let result = await fetch(
+                "http://127.0.0.1:8000/api/uploadimageproduct",
+                {
+                    method: "POST",
+                    body: formData,
+                }
+            );
 
-        this.reload();
+            this.reload();
+        }
     };
     render() {
         return (

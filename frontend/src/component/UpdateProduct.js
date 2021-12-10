@@ -9,7 +9,7 @@ class UpdateProduct extends Component {
         super(props);
         this.state = {
             name: "",
-            file_path: "",
+            file_path: null,
             description: "",
             price: "",
             linkimage: "", // luu hinh anh de hien thi khi chon anh khac se khong bi mat
@@ -49,13 +49,9 @@ class UpdateProduct extends Component {
         const formData = new FormData();
         formData.append("idproduct", idproduct);
         formData.append("name", this.state.name);
-        if (this.state.file_path.name !== undefined) {
+        if (this.state.file_path.name != undefined) {
             // khong chon anh se khong co this.state.file_path.name, khong bi bao loi
-            formData.append(
-                "file",
-                this.state.file_path,
-                this.state.file_path.name
-            );
+            formData.append("file", this.state.file_path);
         }
         formData.append("description", this.state.description);
         formData.append("price", this.state.price);
