@@ -57,4 +57,19 @@ Route::prefix('/')->group(function () {
         'uses' => 'App\Http\Controllers\ProductController@doupdateproduct',
         // 'middleware' => (['auth', 'verified'])
     ]);
+    Route::post('/updateimageproduct', [
+        'as' => 'updateimageproduct',
+        'uses' => 'App\Http\Controllers\ProductController@updateimageproduct',
+        // 'middleware' => (['auth', 'verified'])
+    ]);
+    Route::post('/deleteimageproduct', [
+        'as' => 'deleteimageproduct',
+        'uses' => 'App\Http\Controllers\ProductController@deleteimageproduct',
+        // 'middleware' => (['auth', 'verified'])
+    ]);
+    Route::post('/uploadimageproduct', [
+        'as' => 'uploadimageproduct',
+        'uses' => 'App\Http\Controllers\ProductController@uploadimageproduct',
+        // 'middleware' => (['auth', 'verified'])
+    ]);
 });

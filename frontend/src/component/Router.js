@@ -6,6 +6,7 @@ import Register from "./Register";
 import AddProduct from "./AddProduct";
 import UpdateProduct from "./UpdateProduct";
 import ListProduct from "./ListProduct";
+import UpdateImageProduct from "./UpdateImageProduct";
 
 class Router extends Component {
     render() {
@@ -25,6 +26,9 @@ class Router extends Component {
                         {/* url kem /idproduct */}
                         <Route path="/updateproduct/:idproduct">
                             <UpdateProduct />
+                        </Route>
+                        <Route path="/updateimageproduct/:idproduct">
+                            <UpdateImageProduct />
                         </Route>
                         <Route
                             path="/listproduct"

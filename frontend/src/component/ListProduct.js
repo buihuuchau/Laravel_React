@@ -117,7 +117,16 @@ class ListProduct extends Component {
                                                 },
                                             }}
                                         >
-                                            Update
+                                            Edit
+                                        </Link>
+                                        <Link
+                                            type="submit"
+                                            className="btn btn-warning"
+                                            to={
+                                                "/updateimageproduct/" + item.id
+                                            }
+                                        >
+                                            UpdateImage
                                         </Link>
                                     </td>
                                 </tr>

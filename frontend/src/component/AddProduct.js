@@ -27,11 +27,7 @@ class AddProduct extends Component {
         event.preventDefault();
         const formData = new FormData();
         formData.append("name", this.state.name);
-        formData.append(
-            "file",
-            this.state.file_path,
-            this.state.file_path.name
-        );
+        formData.append("file", this.state.file_path);
         formData.append("description", this.state.description);
         formData.append("price", this.state.price);
         let result = await fetch("http://127.0.0.1:8000/api/addproduct", {

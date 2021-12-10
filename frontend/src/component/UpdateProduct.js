@@ -12,6 +12,7 @@ class UpdateProduct extends Component {
             file_path: "",
             description: "",
             price: "",
+            linkimage: "", // luu hinh anh de hien thi khi chon anh khac se khong bi mat
         };
     }
     async componentDidMount() {
@@ -29,6 +30,7 @@ class UpdateProduct extends Component {
             file_path: result.file_path,
             description: result.description,
             price: result.price,
+            linkimage: result.file_path, // luu hinh anh de hien thi khi chon anh khac se khong bi mat
         });
     }
     onChange = (event) => {
@@ -47,11 +49,14 @@ class UpdateProduct extends Component {
         const formData = new FormData();
         formData.append("idproduct", idproduct);
         formData.append("name", this.state.name);
-        formData.append(
-            "file",
-            this.state.file_path,
-            this.state.file_path.name
-        );
+        if (this.state.file_path.name !== undefined) {
+            // khong chon anh se khong co this.state.file_path.name, khong bi bao loi
+            formData.append(
+                "file",
+                this.state.file_path,
+                this.state.file_path.name
+            );
+        }
         formData.append("description", this.state.description);
         formData.append("price", this.state.price);
         let result = await fetch("http://127.0.0.1:8000/api/doupdateproduct", {
@@ -64,6 +69,7 @@ class UpdateProduct extends Component {
             file_path: result.file_path,
             description: result.description,
             price: result.price,
+            linkimage: result.file_path, // luu hinh anh de hien thi khi chon anh khac se khong bi mat, gan lai anh moi sau khi update
         });
     };
     render() {
@@ -91,7 +97,8 @@ class UpdateProduct extends Component {
                                 style={{ width: 100 }}
                                 src={
                                     "http://127.0.0.1:8000/" +
-                                    this.state.file_path
+                                    // this.state.file_path
+                                    this.state.linkimage // luu hinh anh de hien thi khi chon anh khac se khong bi mat
                                 }
                                 // width="250px"
                                 // height="100px"
