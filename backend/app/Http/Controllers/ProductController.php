@@ -34,7 +34,10 @@ class ProductController extends Controller
 
     function listproduct()
     {
-        return Product::all();
+        $product = Product::all();
+        return response()->json([
+            "product" => $product,
+        ]);
     }
 
     function deleteproduct(Request $request)

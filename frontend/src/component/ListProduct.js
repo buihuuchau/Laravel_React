@@ -15,7 +15,7 @@ class ListProduct extends Component {
         let result = await fetch("http://127.0.0.1:8000/api/listproduct");
         result = await result.json();
         this.setState({
-            product: result,
+            product: result.product,
         });
     }
     async reload() {
