@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import Header from "./Header";
 import { Redirect } from "react-router";
 import { Table, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
@@ -51,7 +50,6 @@ class ListProduct extends Component {
         }
         return (
             <div>
-                <Header />
                 <h1>ListProduct</h1>
                 <Table>
                     <thead>

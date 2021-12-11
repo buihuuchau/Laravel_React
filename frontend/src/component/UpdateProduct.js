@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { Redirect } from "react-router";
 import { withRouter } from "react-router-dom"; // nhan params
 import { Form, Button } from "react-bootstrap";
-import Header from "./Header";
 
 class UpdateProduct extends Component {
     constructor(props) {
@@ -74,7 +73,6 @@ class UpdateProduct extends Component {
         }
         return (
             <div>
-                <Header />
                 <h1>UpdateProduct</h1>
                 <>
                     <Form onSubmit={this.onSubmit}>

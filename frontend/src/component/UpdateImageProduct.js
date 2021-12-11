@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import Header from "./Header";
 import { withRouter } from "react-router-dom"; // nhan params
 import { Button, Form } from "react-bootstrap";
 
@@ -82,7 +81,6 @@ class UpdateImageProduct extends Component {
     render() {
         return (
             <div>
-                <Header />
                 <Form onSubmit={this.uploadImageProduct}>
                     <Form.Group controlId="formFileLg" className="mb-3">
                         <Form.Label>

@@ -7,7 +7,7 @@ class Header extends Component {
         window.location.href = "/Login";
     };
     render() {
-        let user = JSON.parse(localStorage.getItem("user-info"));
+        let user = JSON.parse(localStorage.getItem("user-info")); // lay du lieu localstorage doi thanh chuoi gan vao bien
         return (
             <div>
                 <Navbar bg="dark" variant="dark">
@@ -25,7 +25,7 @@ class Header extends Component {
                                         </Link>
                                     </Nav.Link>
                                     <Nav>
-                                        <NavDropdown title={user && user.name}>
+                                        <NavDropdown title={user.name}>
                                             <NavDropdown.Item
                                                 onClick={this.Logout}
                                             >

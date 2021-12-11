@@ -13,6 +13,7 @@ class Router extends Component {
         return (
             <div>
                 <BrowserRouter>
+                    <Header />
                     <Switch>
                         <Route path="/login">
                             <Login />

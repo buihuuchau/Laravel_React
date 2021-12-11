@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import Header from "./Header";
 import { Form, Button } from "react-bootstrap";
 import { Redirect } from "react-router";
 class Login extends Component {
@@ -46,7 +45,6 @@ class Login extends Component {
         }
         return (
             <div>
-                <Header />
                 <div className="col-sm-6 offset-3">
                     <h1>Login</h1>
                     <Form onSubmit={this.onSubmit}>

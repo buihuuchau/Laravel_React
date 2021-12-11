@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import Header from "./Header";
 import { Redirect } from "react-router";
 import { Form, Button } from "react-bootstrap";
 
@@ -47,7 +46,6 @@ class AddProduct extends Component {
         }
         return (
             <div>
-                <Header />
                 <div className="col-sm-8 offset-2">
                     <h1>AddProduct</h1>
                     <>
