@@ -72,4 +72,14 @@ Route::prefix('/')->group(function () {
         'uses' => 'App\Http\Controllers\ProductController@uploadimageproduct',
         // 'middleware' => (['auth', 'verified'])
     ]);
+    Route::post('/listlike', [
+        'as' => 'listlike',
+        'uses' => 'App\Http\Controllers\LikeController@listlike',
+        // 'middleware' => (['auth', 'verified'])
+    ]);
+    Route::post('/addlike', [
+        'as' => 'addlike',
+        'uses' => 'App\Http\Controllers\LikeController@addlike',
+        // 'middleware' => (['auth', 'verified'])
+    ]);
 });

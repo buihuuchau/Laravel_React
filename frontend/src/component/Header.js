@@ -24,6 +24,9 @@ class Header extends Component {
                                             ListProduct
                                         </Link>
                                     </Nav.Link>
+                                    <Nav.Link>
+                                        <Link to="/ListLike">ListLike</Link>
+                                    </Nav.Link>
                                     <Nav>
                                         <NavDropdown title={user.name}>
                                             <NavDropdown.Item

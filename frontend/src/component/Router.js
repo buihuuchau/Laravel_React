@@ -7,6 +7,7 @@ import AddProduct from "./AddProduct";
 import UpdateProduct from "./UpdateProduct";
 import ListProduct from "./ListProduct";
 import UpdateImageProduct from "./UpdateImageProduct";
+import ListLike from "./ListLike";
 
 class Router extends Component {
     render() {
@@ -35,6 +36,7 @@ class Router extends Component {
                             path="/listproduct"
                             component={ListProduct}
                         ></Route>
+                        <Route path="/listlike" component={ListLike}></Route>
                     </Switch>
                 </BrowserRouter>
             </div>
