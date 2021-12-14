@@ -7,6 +7,8 @@ class ListLike extends Component {
         super(props);
         this.state = {
             like: "",
+            sex: "",
+            feel: "0",
         };
     }
     componentWillMount() {
@@ -35,6 +37,27 @@ class ListLike extends Component {
             body: formData,
         });
     };
+
+    onChange2 = (event) => {
+        this.setState({
+            [event.target.name]: [event.target.value],
+        });
+    };
+    onSubmit2 = (event) => {
+        event.preventDefault();
+        alert(this.state.sex);
+    };
+
+    onChange3 = (event) => {
+        this.setState({
+            [event.target.name]: [event.target.value],
+        });
+    };
+    onSubmit3 = (event) => {
+        event.preventDefault();
+        alert(this.state.feel);
+    };
+
     render() {
         if (!localStorage.getItem("user-info")) {
             return <Redirect to="/Login" />;
@@ -42,22 +65,6 @@ class ListLike extends Component {
         return (
             <div>
                 <h1>ListLike</h1>
-                {/* <Form onSubmit={this.onSubmit}>
-                    <Form.Select
-                        aria-label="Default select example"
-                        name="like"
-                        onChange={this.onChange}
-                        value={this.state.like}
-                    >
-                        <option>Open this select menu</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
-                    </Form.Select>
-                    <Button variant="primary" type="submit">
-                        Submit Like
-                    </Button>
-                </Form> */}
                 <Form onSubmit={this.onSubmit}>
                     <div className="form-check">
                         <input
@@ -93,6 +100,61 @@ class ListLike extends Component {
                             da cau
                         </label>
                     </div>
+                    <Button variant="primary" type="submit">
+                        Submit Like
+                    </Button>
+                </Form>
+
+                <Form onSubmit={this.onSubmit2}>
+                    <Form.Select
+                        aria-label="Default select example"
+                        name="sex"
+                        onChange={this.onChange2}
+                        value={this.state.sex}
+                    >
+                        <option>Gioi Tinh</option>
+                        <option value="0">Nu</option>
+                        <option value="1">Nam</option>
+                    </Form.Select>
+                    <Button variant="primary" type="submit">
+                        Submit Like
+                    </Button>
+                </Form>
+
+                <Form onSubmit={this.onSubmit3}>
+                    <Form.Check
+                        type="radio"
+                        aria-label="radio 1"
+                        id="ok"
+                        name="feel"
+                        value={0}
+                        onChange={this.onChange3}
+                        checked={this.state.feel == 0}
+                    />
+                    <label for="ok">ok</label>
+                    <br />
+                    <Form.Check
+                        type="radio"
+                        aria-label="radio 1"
+                        id="happy"
+                        name="feel"
+                        value={1}
+                        onChange={this.onChange3}
+                        checked={this.state.feel == 1}
+                    />
+                    <label for="happy">happy</label>
+                    <br />
+                    <Form.Check
+                        type="radio"
+                        aria-label="radio 1"
+                        id="scare"
+                        name="feel"
+                        value={2}
+                        onChange={this.onChange3}
+                        checked={this.state.feel == 2}
+                    />
+                    <label for="scare">scare</label>
+                    <br />
                     <Button variant="primary" type="submit">
                         Submit Like
                     </Button>
