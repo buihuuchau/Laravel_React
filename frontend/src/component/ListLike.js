@@ -7,12 +7,20 @@ class ListLike extends Component {
         super(props);
         this.state = {
             like: "",
+            check: [],
             sex: "",
             feel: "0",
         };
     }
     componentWillMount() {
         this.manglike = new Set(); // manglike(tuy y)
+    }
+    async componentDidMount() {
+        let result = await fetch("http://127.0.0.1:8000/api/listlike");
+        result = await result.json();
+        this.setState({
+            check: result.like,
+        });
     }
     checkLike = (event) => {
         if (this.manglike.has(event)) {
@@ -62,9 +70,22 @@ class ListLike extends Component {
         if (!localStorage.getItem("user-info")) {
             return <Redirect to="/Login" />;
         }
+        var hienthi = this.state.check.map((check, key) => {
+            return (
+                <input
+                    className="form-check-input"
+                    type="checkbox"
+                    aria-label="dabanh"
+                    value={check.name}
+                    label={check.name}
+                    onClick={() => this.checkLike(check.name)}
+                />
+            );
+        });
         return (
             <div>
                 <h1>ListLike</h1>
+                {hienthi}
                 <Form onSubmit={this.onSubmit}>
                     <div className="form-check">
                         <input
