@@ -59,16 +59,38 @@ class AddNguoiDung extends Component {
                 errors["email"] = "Please enter valid email address.";
             }
         }
+        if (typeof this.state.password !== "undefined") {
+            // var pattern = new RegExp(/^((?=.*?[A-Z])).(?=.*?[a-z])/i);
+            var pattern = new RegExp(
+                /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}/i
+            );
+
+            if (!pattern.test(this.state.password)) {
+                // alert("Minimum eight characters, at least one uppercase letter, one lowercase letter, one number and one special character.");
+                check = 0;
+                errors["password"] =
+                    "Minimum eight characters, at least one uppercase letter, one lowercase letter, one number and one special character.";
+            }
+        }
+        // if (password != this.state.confirmpassword) {
+        //     check = 0;
+        //     errors["confirmpassword"] = "2 mat khau khac nhau.";
+        // }
         this.setState({
             check: 0,
             error: errors,
         });
     }
+    thongbao = () => {
+        this.validate();
+    };
     render() {
         if (this.state.check == 0) {
             var name = this.state.error.name;
             var emailnull = this.state.error.emailnull;
             var email = this.state.error.email;
+            var password = this.state.error.password;
+            var confirmpassword = this.state.error.confirmpassword;
         }
         return (
             <div>
@@ -84,6 +106,7 @@ class AddNguoiDung extends Component {
                                         name="name"
                                         value={this.state.name}
                                         onChange={this.onChange}
+                                        onBlur={this.thongbao}
                                     />
                                     {name}
                                     <MDBInput
@@ -92,6 +115,7 @@ class AddNguoiDung extends Component {
                                         name="email"
                                         value={this.state.email}
                                         onChange={this.onChange}
+                                        onBlur={this.thongbao}
                                     />
                                     {emailnull}
                                     {email}
@@ -101,14 +125,18 @@ class AddNguoiDung extends Component {
                                         name="password"
                                         value={this.state.password}
                                         onChange={this.onChange}
+                                        onBlur={this.thongbao}
                                     />
+                                    {password}
                                     <MDBInput
                                         label="Confirm your password"
                                         type="password"
                                         name="confirmpassword"
                                         value={this.state.confirmpassword}
                                         onChange={this.onChange}
+                                        onBlur={this.thongbao}
                                     />
+                                    {confirmpassword}
                                 </div>
                                 <div className="text-center">
                                     <MDBBtn color="primary">Register</MDBBtn>
